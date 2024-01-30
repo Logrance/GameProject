@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#board {
+    background-color: bisque;
+    height: 900px;
+    width: 800px;
+    position: relative;
+    text-align: center;
+}
+
+#player {
+    background-color: blueviolet;
+    position: absolute;
+}
