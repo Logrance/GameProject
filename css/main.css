@@ -9,9 +9,16 @@ body {
     width: 800px;
     position: relative;
     text-align: center;
+    overflow: hidden;
 }
 
 #player {
+    /*background-image: url("body.png");*/
     background-color: blueviolet;
+    position: absolute;
+}
+
+.block {
+    background-color: red;
     position: absolute;
 }
