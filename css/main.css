@@ -13,8 +13,8 @@ body {
 }
 
 #player {
-    /*background-image: url("body.png");*/
-    background-color: blueviolet;
+    /*background-image: url("body.png");
+     background-color: blueviolet;*/
     position: absolute;
 }
 

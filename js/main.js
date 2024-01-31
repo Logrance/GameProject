@@ -5,13 +5,17 @@ class Player {
        this.posX = 50;
        this.posY = 0;
        this.domElement = null;
-
+       //counter player image
+       this.imageCounter = 0;
+       this.imageFilenames = ["body.png", "body1.png", "body2.png", "body3.png", "body4.png", "body5.png"];
        this.createDomElement();
+       this.updatePlayerImage();
+
+      
     }
 
     createDomElement(){
         this.domElement = document.createElement("div");
-    
         this.domElement.setAttribute("id", "player");
         this.domElement.style.width = this.width + "px";
         this.domElement.style.height = this.height + "px";
@@ -20,6 +24,11 @@ class Player {
 
         const board = document.getElementById("board");
         board.appendChild(this.domElement);
+    }
+
+    updatePlayerImage(){
+        const imageName = this.imageFilenames[this.imageCounter];
+        this.domElement.style.backgroundImage = `url('../css/${imageName}')`;
     }
 
     moveLeft() {
@@ -52,7 +61,7 @@ class Player {
 
 
 }
-//Try and make it more personalised
+
 class FallingBlocks {
     constructor() {
         this.width = 60;
@@ -60,7 +69,7 @@ class FallingBlocks {
         this.posX = Math.floor(Math.random() * (800 - this.width + 1));
         this.posY = 900;
         this.domElement = null;
-        this.type = Math.floor(Math.random() * 5);
+        this.type = Math.floor(Math.random() * 6);
 
         this.createDomElement();
     }
@@ -73,6 +82,30 @@ class FallingBlocks {
         this.domElement.style.height = this.height + "px";
         this.domElement.style.left = this.posX + "px";
         this.domElement.style.bottom = this.posY + "px";
+
+        if(this.type === 0){
+            this.domElement.style.backgroundColor = "red";
+        }
+
+        if(this.type === 1){
+            this.domElement.style.backgroundColor = "blue";
+        }
+
+        if(this.type === 2){
+            this.domElement.style.backgroundColor = "yellow";
+        }
+
+        if(this.type === 3){
+            this.domElement.style.backgroundColor = "green";
+        }
+
+        if(this.type === 4){
+            this.domElement.style.backgroundColor = "purple";
+        }
+
+        if(this.type === 5) {
+            this.domElement.style.backgroundColor = "black";
+        }
 
         const board = document.getElementById("board");
         board.appendChild(this.domElement);
@@ -104,7 +137,7 @@ document.addEventListener("keyup", (e) => {
     }
 });
 
-//Try and personalise it a bit
+
 setInterval(() => {
     const newBlock = new FallingBlocks();
     fallingBlocks.push(newBlock);
@@ -123,27 +156,54 @@ setInterval(() => {
                 
         switch(blockInstance.type) {
             case 0:
-                player.domElement.style.backgroundColor = "red";
+                if(player.imageCounter < 1){
+                player.imageCounter++;
+                player.updatePlayerImage();
+                console.log(player.imageCounter)
+                }
                 break;
             case 1:
-                player.domElement.style.backgroundColor = "blue";
+                if(player.imageCounter < 2 && player.imageCounter === 1){
+                player.imageCounter++;
+                player.updatePlayerImage();
+                }
                 break;
             case 2:
-                player.domElement.style.backgroundColor = "yellow";
+                if(player.imageCounter < 3 && player.imageCounter === 2){
+                player.imageCounter++;
+                player.updatePlayerImage();
+                }
                 break;
             case 3:
-                player.domElement.style.backgroundColor = "brown";
+                if(player.imageCounter < 4 && player.imageCounter === 3){
+                player.imageCounter++;
+                player.updatePlayerImage();
+                }
                 break;
             case 4:
-                player.domElement.style.backgroundColor = "black";
+                if(player.imageCounter < 5 && player.imageCounter === 4){
+                player.imageCounter++;
+                player.updatePlayerImage();
+                }
                 break;
-            default:
-                player.domElement.style.backgroundColor = "blueviolet"
-            }
+            case 5:
+                if(player.imageCounter > 0){
+                    player.imageCounter--;
+                    player.updatePlayerImage();
+                    
+                }
+                break;
+        }
+                
+            
+            const maxImageCount = 5;
+            player.imageCounter = Math.min(maxImageCount - 1, player.imageCounter);
 
-
+            player.updatePlayerImage();
+            
             //remove block from the DOM
             blockInstance.domElement.remove()
+        
         }
     });
 
