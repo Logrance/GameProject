@@ -128,7 +128,12 @@ let timeLeft = 60; // seconds
 
 function gameOver() {
     clearInterval(timer);
-    console.log("Game Over!");
+
+    if(player.imageCounter >= 4) {
+        window.location.href = "winner.html";
+    } else {
+        console.log("Game Over!");
+    }
 }
 
 function updateTimer() {
