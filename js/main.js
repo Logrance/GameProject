@@ -132,7 +132,7 @@ function gameOver() {
     if(player.imageCounter >= 4) {
         window.location.href = "winner.html";
     } else {
-        console.log("Game Over!");
+        window.location.href = "loser.html";
     }
 }
 
