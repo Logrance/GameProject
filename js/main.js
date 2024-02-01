@@ -146,6 +146,11 @@ function startTimer() {
         timer = setInterval(updateTimer, 1000);
         // Call updateTimer once to update the timer immediately
         updateTimer();
+
+        setInterval(() => {
+            const newBlock = new FallingBlocks();
+            fallingBlocks.push(newBlock);
+        }, 1500);
         
     }
 }
@@ -177,10 +182,10 @@ document.addEventListener("keyup", (e) => {
 });
 
 
-setInterval(() => {
+/*setInterval(() => {
     const newBlock = new FallingBlocks();
     fallingBlocks.push(newBlock);
-}, 1500);
+}, 1500);*/
 
 setInterval(() => {
     fallingBlocks.forEach((blockInstance) => {
