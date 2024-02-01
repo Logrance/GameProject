@@ -28,7 +28,7 @@ class Player {
 
     updatePlayerImage(){
         const imageName = this.imageFilenames[this.imageCounter];
-        this.domElement.style.backgroundImage = `url('../css/${imageName}')`;
+        this.domElement.style.backgroundImage = `url('./css/${imageName}')`;
     }
 
     moveLeft() {
@@ -121,6 +121,45 @@ class FallingBlocks {
 const player = new Player();
 const fallingBlocks = [];
 
+//timer code
+
+let timer;
+let timeLeft = 60; // seconds
+
+function gameOver() {
+    clearInterval(timer);
+    console.log("Game Over!");
+}
+
+function updateTimer() {
+    timeLeft = timeLeft - 1;
+    if (timeLeft >= 0) {
+        document.getElementById("timer").innerHTML = timeLeft;
+    } else {
+        gameOver();
+    }
+}
+
+function startTimer() {
+    // Start the timer only if it's not already running
+    if (!timer) {
+        timer = setInterval(updateTimer, 1000);
+        // Call updateTimer once to update the timer immediately
+        updateTimer();
+        
+    }
+}
+
+// Event listener to start timer
+document.addEventListener("keydown", (e) => {
+    if (e.code === 'ArrowLeft' || e.code === 'ArrowRight' || e.code === 'Enter') {
+        startTimer();
+    }
+});
+
+//timer code ends
+
+
 document.addEventListener("keydown", (e) => {
     if(e.code === 'ArrowLeft') {
         player.moveLeft();
@@ -208,7 +247,3 @@ setInterval(() => {
     });
 
 }, 10);
-
-
-
-
