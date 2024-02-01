@@ -56,3 +56,10 @@ body {
     position: absolute;
 }
 
+#timer {
+    position: absolute;
+    bottom: 880px;
+    left: 760px;
+    font-size: 30px;
+    font-weight: bold;
+}
