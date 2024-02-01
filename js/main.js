@@ -160,12 +160,22 @@ function startTimer() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    const greeting = document.getElementById("greeting");
+    greeting.style.display = "block";
+
+    document.getElementById("start-button").addEventListener("click", function() {
+        greeting.style.display = "none";
+        startTimer();
+    });
+});
+
 // Event listener to start timer
-document.addEventListener("keydown", (e) => {
+/*document.addEventListener("keydown", (e) => {
     if (e.code === 'ArrowLeft' || e.code === 'ArrowRight' || e.code === 'Enter') {
         startTimer();
     }
-});
+});*/
 
 //timer code ends
 
