@@ -112,7 +112,7 @@ class FallingBlocks {
     }
 
     moveDown() {
-        this.posY--;
+        this.posY -= 3;
         this.domElement.style.bottom = this.posY + "px";
     }
 
@@ -181,12 +181,6 @@ document.addEventListener("keyup", (e) => {
     }
 });
 
-
-/*setInterval(() => {
-    const newBlock = new FallingBlocks();
-    fallingBlocks.push(newBlock);
-}, 1500);*/
-
 setInterval(() => {
     fallingBlocks.forEach((blockInstance) => {
         blockInstance.moveDown();
@@ -210,24 +204,30 @@ setInterval(() => {
                 if(player.imageCounter < 2 && player.imageCounter === 1){
                 player.imageCounter++;
                 player.updatePlayerImage();
+                console.log(player.imageCounter)
                 }
                 break;
             case 2:
                 if(player.imageCounter < 3 && player.imageCounter === 2){
                 player.imageCounter++;
                 player.updatePlayerImage();
+                console.log(player.imageCounter)
                 }
                 break;
             case 3:
                 if(player.imageCounter < 4 && player.imageCounter === 3){
                 player.imageCounter++;
                 player.updatePlayerImage();
+                console.log(player.imageCounter)
                 }
                 break;
             case 4:
                 if(player.imageCounter < 5 && player.imageCounter === 4){
                 player.imageCounter++;
                 player.updatePlayerImage();
+                //Game over on having all the body parts
+                gameOver();
+                console.log(gameOver());
                 }
                 break;
             case 5:
