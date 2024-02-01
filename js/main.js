@@ -7,7 +7,7 @@ class Player {
        this.domElement = null;
        //counter player image
        this.imageCounter = 0;
-       this.imageFilenames = ["body.png", "body1.png", "body2.png", "body3.png", "body4.png", "body5.png"];
+       this.imageFilenames = ["newbod.png", "newbod1.png", "newbod2.png", "newbod3.png", "newbod4.png", "newbod5.png"];
        this.createDomElement();
        this.updatePlayerImage();
 
@@ -84,27 +84,33 @@ class FallingBlocks {
         this.domElement.style.bottom = this.posY + "px";
 
         if(this.type === 0){
-            this.domElement.style.backgroundColor = "red";
+            this.domElement.style.backgroundImage = 'url("./css/block1.png")';
+            this.domElement.style.backgroundRepeat = 'no-repeat';
         }
 
         if(this.type === 1){
-            this.domElement.style.backgroundColor = "blue";
+            this.domElement.style.backgroundImage = 'url("./css/block2.png")';
+            this.domElement.style.backgroundRepeat = 'no-repeat';
         }
 
         if(this.type === 2){
-            this.domElement.style.backgroundColor = "yellow";
+            this.domElement.style.backgroundImage = 'url("./css/block3.png")';
+            this.domElement.style.backgroundRepeat = 'no-repeat';
         }
 
         if(this.type === 3){
-            this.domElement.style.backgroundColor = "green";
+            this.domElement.style.backgroundImage = 'url("./css/block4.png")';
+            this.domElement.style.backgroundRepeat = 'no-repeat';
         }
 
         if(this.type === 4){
-            this.domElement.style.backgroundColor = "purple";
+            this.domElement.style.backgroundImage = 'url("./css/block5.png")';
+            this.domElement.style.backgroundRepeat = 'no-repeat';
         }
 
         if(this.type === 5) {
-            this.domElement.style.backgroundColor = "black";
+            this.domElement.style.backgroundImage = 'url("./css/block6.png")';
+            this.domElement.style.backgroundRepeat = 'no-repeat';
         }
 
         const board = document.getElementById("board");
@@ -146,10 +152,8 @@ function updateTimer() {
 }
 
 function startTimer() {
-    // Start the timer only if it's not already running
     if (!timer) {
         timer = setInterval(updateTimer, 1000);
-        // Call updateTimer once to update the timer immediately
         updateTimer();
 
         setInterval(() => {
@@ -169,15 +173,6 @@ document.addEventListener("DOMContentLoaded", function() {
         startTimer();
     });
 });
-
-// Event listener to start timer
-/*document.addEventListener("keydown", (e) => {
-    if (e.code === 'ArrowLeft' || e.code === 'ArrowRight' || e.code === 'Enter') {
-        startTimer();
-    }
-});*/
-
-//timer code ends
 
 
 document.addEventListener("keydown", (e) => {

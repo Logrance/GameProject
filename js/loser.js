@@ -1,3 +1,3 @@
-document.getElementById("returnTwo").addEventListener("click", function() {
+document.getElementById("return-two").addEventListener("click", function() {
     window.location.href = "index.html";
 });
